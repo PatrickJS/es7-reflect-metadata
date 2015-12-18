@@ -1,8 +1,11 @@
 {
   "name": "es7-reflect-metadata",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "ES7 Polyfill for Metadata Reflection API with Universal and Webpack support",
-  "main": "dist",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "typescript": {
     "definition": "es7-reflect-metadata.d.ts"
   },
