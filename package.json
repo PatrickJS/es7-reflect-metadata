@@ -1,10 +1,11 @@
 {
   "name": "es7-reflect-metadata",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "ES7 Polyfill for Metadata Reflection API with Universal and Webpack support",
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "es7-reflect-metadata.d.ts"
   ],
   "typescript": {
     "definition": "es7-reflect-metadata.d.ts"
@@ -43,6 +44,7 @@
   "homepage": "http://gdi2290.github.io/es7-reflect-metadata",
   "dependencies": {},
   "devDependencies": {
+    "merge-deep": "^2.0.1",
     "object-assign": "^4.0.1",
     "ts-loader": "^0.7.2",
     "typescript": "^1.7.5",
@@ -50,5 +52,9 @@
   },
   "browser": {
     "./src/helper/gen-randombytes.ts": "./src/helper/gen-randombytes.browser.ts"
+  },
+  "server": {},
+  "worker": {
+    "./src/helper/gen-randombytes.ts": "./src/helper/gen-randombytes.ts"
   }
 }

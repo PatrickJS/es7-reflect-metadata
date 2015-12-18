@@ -1,14 +1,5 @@
-(function webpackUniversalModuleDefinition(root, factory) {
-	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory();
-	else if(typeof define === 'function' && define.amd)
-		define([], factory);
-	else if(typeof exports === 'object')
-		exports["Reflect"] = factory();
-	else
-		root["Reflect"] = factory();
-})(this, function() {
-return /******/ (function(modules) { // webpackBootstrap
+exports["Reflect"] =
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -54,7 +45,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
 	var Reflect = __webpack_require__(1);
+	__export(__webpack_require__(1));
 	global.Reflect = Reflect;
 
 
@@ -896,26 +891,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var fill_randomBytes_1 = __webpack_require__(16);
+	var crypto = __webpack_require__(16);
 	function genRandomBytes(size) {
-	    var data;
-	    if (typeof Uint8Array === "function") {
-	        data = new Uint8Array(size);
-	        if (typeof window.crypto !== "undefined") {
-	            window.crypto.getRandomValues(data);
-	        }
-	        else if (typeof window.msCrypto !== "undefined") {
-	            window.msCrypto.getRandomValues(data);
-	        }
-	        else {
-	            fill_randomBytes_1.fillRandomBytes(data, size);
-	        }
-	    }
-	    else {
-	        data = new Array(size);
-	        fill_randomBytes_1.fillRandomBytes(data, size);
-	    }
-	    return data;
+	    return crypto.randomBytes(size);
 	}
 	exports.genRandomBytes = genRandomBytes;
 
@@ -924,14 +902,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 16 */
 /***/ function(module, exports) {
 
-	function fillRandomBytes(buffer, size) {
-	    for (var i = 0; i < size; ++i) {
-	        buffer[i] = Math.random() * 255 | 0;
-	    }
-	    return buffer;
-	}
-	exports.fillRandomBytes = fillRandomBytes;
-
+	module.exports = require("crypto");
 
 /***/ },
 /* 17 */
@@ -1180,7 +1151,5 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ }
-/******/ ])
-});
-;
+/******/ ]);
 //# sourceMappingURL=node.js.map

@@ -1,3 +1,4 @@
+declare var require: Function | any;
 declare var global: any;
 
 declare module "assert" {

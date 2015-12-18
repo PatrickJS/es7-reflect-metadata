@@ -12,24 +12,7 @@ MERCHANTABLITY OR NON-INFRINGEMENT.
 See the Apache Version 2.0 License for specific language governing permissions
 and limitations under the License.
 ***************************************************************************** */
-declare module "es7-reflect-metadata" {
-    // The "reflect-metadata" module has no imports or exports, but can be used by modules to load the polyfill.
-}
 
-declare module "es7-reflect-metadata/src/reflect" {}
-declare module "es7-reflect-metadata/dist/src/reflect" {}
-
-declare module "es7-reflect-metadata/src/reflect/global" {}
-declare module "es7-reflect-metadata/dist/src/reflect/global" {}
-
-declare module "es7-reflect-metadata/src/reflect/global/browser" {}
-declare module "es7-reflect-metadata/dist/src/reflect/global/browser" {}
-
-declare module "es7-reflect-metadata/src/reflect/global/node" {}
-declare module "es7-reflect-metadata/dist/src/reflect/global/node" {}
-
-declare module "es7-reflect-metadata/src/reflect/global/worker" {}
-declare module "es7-reflect-metadata/dist/src/reflect/global/worker" {}
 
 declare module Reflect {
     /**
@@ -501,4 +484,15 @@ declare module Reflect {
       *
       */
     function deleteMetadata(metadataKey: any, target: Object, targetKey: string | symbol): boolean;
+}
+
+declare module "es7-reflect-metadata" {
+    // The "reflect-metadata" module has no imports or exports, but can be used by modules to load the polyfill.
+}
+
+declare module "es7-reflect-metadata/dist/browser" {
+      export = { Reflect };
+}
+declare module "es7-reflect-metadata/dist/node" {
+      export = { Reflect };
 }

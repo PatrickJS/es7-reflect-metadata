@@ -54,7 +54,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	function __export(m) {
+	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
+	}
 	var Reflect = __webpack_require__(1);
+	__export(__webpack_require__(1));
 	window.Reflect = Reflect;
 
 
