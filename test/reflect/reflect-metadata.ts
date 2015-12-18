@@ -1,7 +1,7 @@
 // Reflect.metadata ( metadataKey, metadataValue )
 // - https://github.com/jonathandturner/decorators/blob/master/specs/metadata.md#reflectmetadata--metadatakey-metadatavalue-
 
-import "../../Reflect";
+import "../../dist/reflect";
 import * as assert from "assert";
 
 export function ReflectMetadataReturnsDecoratorFunction() {

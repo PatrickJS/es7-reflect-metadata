@@ -1,10 +1,43 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES5",
     "noImplicitAny": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "outDir": "dist"
   },
   "files": [
-    "Reflect.ts"
-  ]
+    "node_modules/typescript/lib/lib.core.es6.d.ts",
+    "node_modules/typescript/lib/lib.dom.d.ts",
+    "typings/node.d.ts",
+    "src/global/browser.ts",
+    "src/global/node.ts",
+    "src/global/worker.ts",
+    "src/reflect-metadata.ts",
+    "src/reflect.ts",
+    "src/shim/map.ts",
+    "src/shim/set.ts",
+    "src/shim/weakmap.ts",
+    "src/helper/helper-constants.ts",
+    "src/helper/create-unique-key.ts",
+    "src/helper/create-uuid.ts",
+    "src/helper/fill-randombytes.ts",
+    "src/helper/gen-randombytes.browser.ts",
+    "src/helper/gen-randombytes.ts",
+    "src/helper/get-or-create-metadata-map.ts",
+    "src/helper/get-or-create-weakmap.ts",
+    "src/helper/get-proto-of-type.ts",
+    "src/helper/has-own.ts",
+    "src/helper/interfaces.ts",
+    "src/helper/is-array.ts",
+    "src/helper/is-constructor.ts",
+    "src/helper/is-object.ts",
+    "src/helper/is-symbol.ts",
+    "src/helper/is-undefined.ts",
+    "src/helper/metadata.ts",
+    "src/helper/ordinary-metadata-keys.ts",
+    "src/helper/ordinary-own-metadata-keys.ts",
+    "src/helper/to-property-key.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
 }

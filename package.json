@@ -1,19 +1,21 @@
 {
-  "name": "reflect-metadata",
-  "version": "0.1.2",
-  "description": "Polyfill for Metadata Reflection API",
-  "main": "Reflect.js",
+  "name": "es7-reflect-metadata",
+  "version": "1.0.0",
+  "description": "ES7 Polyfill for Metadata Reflection API with Universal and Webpack support",
+  "main": "dist/es7-reflect-metadata.js",
   "typescript": {
-    "definition": "reflect-metadata.d.ts"
+    "definition": "es7-reflect-metadata.d.ts"
   },
   "scripts": {
-     "build": "./node_modules/.bin/tsc.cmd",
-     "build-test": "./node_modules/.bin/tsc.cmd --project ./test/",
-     "test": "npm run-script build-test & node ./temp/test/run.js"
+    "build": "webpack --progress --display-error-details --display-reasons",
+    "build:min": "webpack --config webpack.config.min.js --progress --display-error-details --display-reasons --display-modules --display-chunks",
+    "bundle": "npm run build && npm run build:min ",
+    "build-test": "tsc --project ./test/",
+    "test": "npm run-script build-test & node ./temp/test/run.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rbuckton/ReflectDecorators.git"
+    "url": "https://github.com/gdi2290/es7-reflect-metadata.git"
   },
   "keywords": [
     "decorator",
@@ -21,23 +23,29 @@
     "javascript",
     "reflect"
   ],
-  "author": {
-    "name": "Ron Buckton",
-    "email": "ron.buckton@microsoft.com",
-    "url": "http://github.com/rbuckton"
-  },
-  "licenses": [{
-    "license": "Apache-2.0",
-    "url": "http://github.com/rbuckton/ReflectDecorators/raw/master/LICENSE"
-  }],
+  "contributors": [
+    "Ron Buckton <ron.buckton@microsoft.com>",
+    "Patrick Stapleton <patrick@angularclass.com"
+  ],
+  "licenses": [
+    {
+      "license": "Apache-2.0",
+      "url": "http://github.com/gdi2290/es7-reflect-metadata/raw/master/LICENSE"
+    }
+  ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/rbuckton/ReflectDecorators/issues"
+    "url": "https://github.com/gdi2290/es7-reflect-metadata/issues"
   },
-  "homepage": "http://rbuckton.github.io/ReflectDecorators",
-  "dependencies": {
-  },
+  "homepage": "http://gdi2290.github.io/es7-reflect-metadata",
+  "dependencies": {},
   "devDependencies": {
-    "typescript": ">=1.5.0-alpha"
+    "object-assign": "^4.0.1",
+    "ts-loader": "^0.7.2",
+    "typescript": "^1.7.5",
+    "webpack": "^1.12.9"
+  },
+  "browser": {
+    "./src/helper/gen-randombytes.ts": "./src/helper/gen-randombytes.browser.ts"
   }
 }

@@ -1,6 +1,6 @@
 // Reflect.decorate ( decorators, target [, propertyKey [, descriptor] ] )
 
-import "../../Reflect";
+import "../../dist/reflect";
 import * as assert from "assert";
 
 export function ReflectDecorateThrowsIfDecoratorsArgumentNotArrayForFunctionOverload() {

@@ -1,7 +1,7 @@
 // Reflect.hasMetadata ( metadataKey, target [, propertyKey] )
 // - https://github.com/jonathandturner/decorators/blob/master/specs/metadata.md#reflecthasmetadata--metadatakey-target--propertykey-
 
-import "../../Reflect";
+import "../../dist/reflect";
 import * as assert from "assert";
 
 export function ReflectHasMetadataInvalidTarget() {
