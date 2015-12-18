@@ -8,10 +8,15 @@ module.exports = {
   devtool: 'source-map',
 
   cache: false,
-  entry: root("./src/reflect"),
+  entry: {
+    "browser": root("./src/global/browser"),
+    "node": root("./src/global/node"),
+    "worker": root("./src/global/worker"),
+    "index": root("./src/reflect")
+  },
   output: {
     path: root("dist"),
-    filename: "es7-reflect-metadata.js",
+    filename: "[name].js",
     library: "Reflect",
     libraryTarget: "umd"
   },

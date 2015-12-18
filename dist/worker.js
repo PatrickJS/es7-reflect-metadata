@@ -54,8 +54,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var metadata = __webpack_require__(1);
-	exports.Reflect = metadata;
+	var Reflect = __webpack_require__(1);
+	self.Reflect = Reflect;
 
 
 /***/ },
@@ -1183,4 +1183,4 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ ])
 });
 ;
-//# sourceMappingURL=es7-reflect-metadata.js.map
+//# sourceMappingURL=worker.js.map
