@@ -20,7 +20,7 @@ export function getProtoOfType(O: any): any {
 
   // If the super prototype is Object.prototype, null, or undefined, then we cannot determine the heritage.
   let prototype = O.prototype;
-  let prototypeProto = Object.getPrototypeOf(prototype);
+  let prototypeProto = prototype && Object.getPrototypeOf(prototype);
   if (prototypeProto == null || prototypeProto === Object.prototype) {
     return proto;
   }
