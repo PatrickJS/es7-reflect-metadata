@@ -125,16 +125,16 @@ export function decorate(decorators: (PropertyDecorator | MethodDecorator)[], ta
 export function decorate(decorators: (ClassDecorator | MethodDecorator | PropertyDecorator)[], target: Object, targetKey?: string | symbol, targetDescriptor?: PropertyDescriptor): any {
   if (!isUndefined(targetDescriptor)) {
     if (!isArray(decorators)) {
-      throw new TypeError();
+      throw new TypeError('decorators ' + <any>decorators + ' is not an array of decorators');
     }
     else if (!isObject(target)) {
-      throw new TypeError();
+      throw new TypeError('target ' + <any>target + ' is not an object');
     }
     else if (isUndefined(targetKey)) {
-      throw new TypeError();
+      throw new TypeError('target key ' + <any>targetKey +'is undefined');
     }
     else if (!isObject(targetDescriptor)) {
-      throw new TypeError();
+      throw new TypeError('targetDescriptor ' + <any>targetDescriptor + ' is not an object');
     }
 
     targetKey = toPropertyKey(targetKey);
@@ -142,10 +142,10 @@ export function decorate(decorators: (ClassDecorator | MethodDecorator | Propert
   }
   else if (!isUndefined(targetKey)) {
     if (!isArray(decorators)) {
-      throw new TypeError();
+      throw new TypeError('decorators ' + <any>decorators + ' is not an array of decorators');
     }
     else if (!isObject(target)) {
-      throw new TypeError();
+      throw new TypeError('target ' + <any>target + ' is not an object');
     }
 
     targetKey = toPropertyKey(targetKey);
@@ -153,10 +153,10 @@ export function decorate(decorators: (ClassDecorator | MethodDecorator | Propert
   }
   else {
     if (!isArray(decorators)) {
-      throw new TypeError();
+      throw new TypeError('decorators ' + <any>decorators + ' is not an array of decorators');
     }
     else if (!isConstructor(target)) {
-      throw new TypeError();
+      throw new TypeError('target ' + <any>target + ' is not a constructor');
     }
 
     return DecorateConstructor(<ClassDecorator[]>decorators, <Function>target);
@@ -209,7 +209,7 @@ export function metadata(metadataKey: any, metadataValue: any) {
   function decorator(target: Object, targetKey?: string | symbol): void {
     if (!isUndefined(targetKey)) {
       if (!isObject(target)) {
-        throw new TypeError();
+        throw new TypeError('target ' + <any>target + ' is not an object');
       }
 
       targetKey = toPropertyKey(targetKey);
@@ -217,7 +217,7 @@ export function metadata(metadataKey: any, metadataValue: any) {
     }
     else {
       if (!isConstructor(target)) {
-        throw new TypeError();
+        throw new TypeError('target ' + <any>target + ' is not a constructor');
       }
 
       OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, /*targetKey*/ undefined);
@@ -326,7 +326,7 @@ export function defineMetadata(metadataKey: any, metadataValue: any, target: Obj
  */
 export function defineMetadata(metadataKey: any, metadataValue: any, target: Object, targetKey?: string | symbol): void {
   if (!isObject(target)) {
-    throw new TypeError();
+    throw new TypeError('target ' + <any>target + ' is not an object');
   }
   else if (!isUndefined(targetKey)) {
     targetKey = toPropertyKey(targetKey);
@@ -419,7 +419,7 @@ export function hasMetadata(metadataKey: any, target: Object, targetKey: string 
  */
 export function hasMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): boolean {
   if (!isObject(target)) {
-    throw new TypeError();
+    throw new TypeError('target ' + <any>target + ' is not an object');
   }
   else if (!isUndefined(targetKey)) {
     targetKey = toPropertyKey(targetKey);
@@ -512,7 +512,7 @@ export function hasOwnMetadata(metadataKey: any, target: Object, targetKey: stri
  */
 export function hasOwnMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): boolean {
   if (!isObject(target)) {
-    throw new TypeError();
+    throw new TypeError('target ' + <any>target + ' is not an object');
   }
   else if (!isUndefined(targetKey)) {
     targetKey = toPropertyKey(targetKey);
@@ -605,7 +605,7 @@ export function getMetadata(metadataKey: any, target: Object, targetKey: string 
  */
 export function getMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): any {
   if (!isObject(target)) {
-    throw new TypeError();
+    throw new TypeError('target ' + <any>target + ' is not an object');
   }
   else if (!isUndefined(targetKey)) {
     targetKey = toPropertyKey(targetKey);
@@ -698,7 +698,7 @@ export function getOwnMetadata(metadataKey: any, target: Object, targetKey: stri
  */
 export function getOwnMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): any {
   if (!isObject(target)) {
-    throw new TypeError();
+    throw new TypeError('target ' + <any>target + ' is not an object');
   }
   else if (!isUndefined(targetKey)) {
     targetKey = toPropertyKey(targetKey);
@@ -788,7 +788,7 @@ export function getMetadataKeys(target: Object, targetKey: string | symbol): any
  */
 export function getMetadataKeys(target: Object, targetKey?: string | symbol): any[] {
   if (!isObject(target)) {
-    throw new TypeError();
+    throw new TypeError('target ' + <any>target + ' is not an object');
   }
   else if (!isUndefined(targetKey)) {
     targetKey = toPropertyKey(targetKey);
@@ -878,7 +878,7 @@ export function getOwnMetadataKeys(target: Object, targetKey: string | symbol): 
  */
 export function getOwnMetadataKeys(target: Object, targetKey?: string | symbol): any[] {
   if (!isObject(target)) {
-    throw new TypeError();
+    throw new TypeError('target ' + <any>target + ' is not an object');
   }
   else if (!isUndefined(targetKey)) {
     targetKey = toPropertyKey(targetKey);
@@ -971,7 +971,7 @@ export function deleteMetadata(metadataKey: any, target: Object, targetKey: stri
  */
 export function deleteMetadata(metadataKey: any, target: Object, targetKey?: string | symbol): boolean {
   if (!isObject(target)) {
-    throw new TypeError();
+    throw new TypeError('target ' + <any>target + ' is not an object');
   }
   else if (!isUndefined(targetKey)) {
     targetKey = toPropertyKey(targetKey);
@@ -1007,7 +1007,7 @@ function DecorateConstructor(decorators: ClassDecorator[], target: Function): Fu
     let decorated = decorator(target);
     if (!isUndefined(decorated)) {
       if (!isConstructor(decorated)) {
-        throw new TypeError();
+        throw new TypeError('target ' + <any>target + ' is not a constructor');
       }
       target = <Function>decorated;
     }
@@ -1021,7 +1021,7 @@ function DecoratePropertyWithDescriptor(decorators: MethodDecorator[], target: O
     let decorated = decorator(target, propertyKey, descriptor);
     if (!isUndefined(decorated)) {
       if (!isObject(decorated)) {
-        throw new TypeError();
+        throw new TypeError('decorated ' + <any>decorated + ' is not an object');
       }
       descriptor = <PropertyDescriptor>decorated;
     }
