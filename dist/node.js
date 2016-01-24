@@ -109,36 +109,36 @@ exports["Reflect"] =
 	function decorate(decorators, target, targetKey, targetDescriptor) {
 	    if (!is_undefined_1.isUndefined(targetDescriptor)) {
 	        if (!is_array_1.isArray(decorators)) {
-	            throw new TypeError();
+	            throw new TypeError('decorators ' + decorators + ' is not an array of decorators');
 	        }
 	        else if (!is_object_1.isObject(target)) {
-	            throw new TypeError();
+	            throw new TypeError('target ' + target + ' is not an object');
 	        }
 	        else if (is_undefined_1.isUndefined(targetKey)) {
-	            throw new TypeError();
+	            throw new TypeError('target key ' + targetKey + 'is undefined');
 	        }
 	        else if (!is_object_1.isObject(targetDescriptor)) {
-	            throw new TypeError();
+	            throw new TypeError('targetDescriptor ' + targetDescriptor + ' is not an object');
 	        }
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
 	        return DecoratePropertyWithDescriptor(decorators, target, targetKey, targetDescriptor);
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        if (!is_array_1.isArray(decorators)) {
-	            throw new TypeError();
+	            throw new TypeError('decorators ' + decorators + ' is not an array of decorators');
 	        }
 	        else if (!is_object_1.isObject(target)) {
-	            throw new TypeError();
+	            throw new TypeError('target ' + target + ' is not an object');
 	        }
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
 	        return DecoratePropertyWithoutDescriptor(decorators, target, targetKey);
 	    }
 	    else {
 	        if (!is_array_1.isArray(decorators)) {
-	            throw new TypeError();
+	            throw new TypeError('decorators ' + decorators + ' is not an array of decorators');
 	        }
 	        else if (!is_constructor_1.isConstructor(target)) {
-	            throw new TypeError();
+	            throw new TypeError('target ' + target + ' is not a constructor');
 	        }
 	        return DecorateConstructor(decorators, target);
 	    }
@@ -188,14 +188,14 @@ exports["Reflect"] =
 	    function decorator(target, targetKey) {
 	        if (!is_undefined_1.isUndefined(targetKey)) {
 	            if (!is_object_1.isObject(target)) {
-	                throw new TypeError();
+	                throw new TypeError('target ' + target + ' is not an object');
 	            }
 	            targetKey = to_property_key_1.toPropertyKey(targetKey);
 	            OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, targetKey);
 	        }
 	        else {
 	            if (!is_constructor_1.isConstructor(target)) {
-	                throw new TypeError();
+	                throw new TypeError('target ' + target + ' is not a constructor');
 	            }
 	            OrdinaryDefineOwnMetadata(metadataKey, metadataValue, target, /*targetKey*/ undefined);
 	        }
@@ -244,7 +244,7 @@ exports["Reflect"] =
 	 */
 	function defineMetadata(metadataKey, metadataValue, target, targetKey) {
 	    if (!is_object_1.isObject(target)) {
-	        throw new TypeError();
+	        throw new TypeError('target ' + target + ' is not an object');
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
@@ -288,7 +288,7 @@ exports["Reflect"] =
 	 */
 	function hasMetadata(metadataKey, target, targetKey) {
 	    if (!is_object_1.isObject(target)) {
-	        throw new TypeError();
+	        throw new TypeError('target ' + target + ' is not an object');
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
@@ -332,7 +332,7 @@ exports["Reflect"] =
 	 */
 	function hasOwnMetadata(metadataKey, target, targetKey) {
 	    if (!is_object_1.isObject(target)) {
-	        throw new TypeError();
+	        throw new TypeError('target ' + target + ' is not an object');
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
@@ -376,7 +376,7 @@ exports["Reflect"] =
 	 */
 	function getMetadata(metadataKey, target, targetKey) {
 	    if (!is_object_1.isObject(target)) {
-	        throw new TypeError();
+	        throw new TypeError('target ' + target + ' is not an object');
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
@@ -420,7 +420,7 @@ exports["Reflect"] =
 	 */
 	function getOwnMetadata(metadataKey, target, targetKey) {
 	    if (!is_object_1.isObject(target)) {
-	        throw new TypeError();
+	        throw new TypeError('target ' + target + ' is not an object');
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
@@ -463,7 +463,7 @@ exports["Reflect"] =
 	 */
 	function getMetadataKeys(target, targetKey) {
 	    if (!is_object_1.isObject(target)) {
-	        throw new TypeError();
+	        throw new TypeError('target ' + target + ' is not an object');
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
@@ -506,7 +506,7 @@ exports["Reflect"] =
 	 */
 	function getOwnMetadataKeys(target, targetKey) {
 	    if (!is_object_1.isObject(target)) {
-	        throw new TypeError();
+	        throw new TypeError('target ' + target + ' is not an object');
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
@@ -550,7 +550,7 @@ exports["Reflect"] =
 	 */
 	function deleteMetadata(metadataKey, target, targetKey) {
 	    if (!is_object_1.isObject(target)) {
-	        throw new TypeError();
+	        throw new TypeError('target ' + target + ' is not an object');
 	    }
 	    else if (!is_undefined_1.isUndefined(targetKey)) {
 	        targetKey = to_property_key_1.toPropertyKey(targetKey);
@@ -581,7 +581,7 @@ exports["Reflect"] =
 	        var decorated = decorator(target);
 	        if (!is_undefined_1.isUndefined(decorated)) {
 	            if (!is_constructor_1.isConstructor(decorated)) {
-	                throw new TypeError();
+	                throw new TypeError('target ' + target + ' is not a constructor');
 	            }
 	            target = decorated;
 	        }
@@ -594,7 +594,7 @@ exports["Reflect"] =
 	        var decorated = decorator(target, propertyKey, descriptor);
 	        if (!is_undefined_1.isUndefined(decorated)) {
 	            if (!is_object_1.isObject(decorated)) {
-	                throw new TypeError();
+	                throw new TypeError('decorated ' + decorated + ' is not an object');
 	            }
 	            descriptor = decorated;
 	        }
@@ -676,7 +676,7 @@ exports["Reflect"] =
 	    }
 	    // If the super prototype is Object.prototype, null, or undefined, then we cannot determine the heritage.
 	    var prototype = O.prototype;
-	    var prototypeProto = Object.getPrototypeOf(prototype);
+	    var prototypeProto = prototype && Object.getPrototypeOf(prototype);
 	    if (prototypeProto == null || prototypeProto === Object.prototype) {
 	        return proto;
 	    }
