@@ -3,11 +3,21 @@
   "version": "1.5.2",
   "description": "ES7 Polyfill for Metadata Reflection API with Universal and Webpack support",
   "main": "dist/node.js",
+  "browser": {
+    "src/helper/gen-randombytes.ts": "./src/helper/gen-randombytes.browser.ts"
+  },
+  "server": {
+    "src/helper/gen-randombytes.ts": "./src/helper/gen-randombytes.ts"
+  },
+  "worker": {
+    "src/helper/gen-randombytes.ts": "./src/helper/gen-randombytes.browser.ts"
+  },
   "files": [
     "dist",
     "src",
     "es7-reflect-metadata.d.ts"
   ],
+  "typings": "es7-reflect-metadata.d.ts",
   "typescript": {
     "definition": "es7-reflect-metadata.d.ts"
   },
@@ -51,15 +61,8 @@
   "devDependencies": {
     "merge-deep": "^2.0.1",
     "object-assign": "^4.0.1",
-    "ts-loader": "^0.7.2",
+    "ts-loader": "^0.8.0",
     "typescript": "^1.7.5",
     "webpack": "^1.12.9"
-  },
-  "browser": {
-    "src/helper/gen-randombytes.ts": "src/helper/gen-randombytes.browser.ts"
-  },
-  "server": {},
-  "worker": {
-    "src/helper/gen-randombytes.ts": "src/helper/gen-randombytes.ts"
   }
 }
