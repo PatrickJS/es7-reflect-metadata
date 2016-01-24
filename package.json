@@ -17,6 +17,7 @@
     "build:min": "webpack --config webpack.config.min.js --progress --display-error-details --display-reasons --display-modules --display-chunks",
     "bundle": "npm run build:src && npm run build:min ",
     "build-test": "tsc --project ./test/",
+    "prepublish": "npm run-script build",
     "test": "npm run-script build-test & node ./temp/test/run.js"
   },
   "repository": {
