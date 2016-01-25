@@ -1,5 +1,5 @@
 import {BufferLike} from "./interfaces";
-import {fillRandomBytes} from "./fill-randomBytes";
+import {fillRandomBytes} from "./fill-randombytes";
 
 export function genRandomBytes(size: number): BufferLike {
   var data: BufferLike;
