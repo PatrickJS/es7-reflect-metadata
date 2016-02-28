@@ -486,13 +486,4 @@ declare module Reflect {
     function deleteMetadata(metadataKey: any, target: Object, targetKey: string | symbol): boolean;
 }
 
-declare module "es7-reflect-metadata" {
-    // The "reflect-metadata" module has no imports or exports, but can be used by modules to load the polyfill.
-}
-
-declare module "es7-reflect-metadata/dist/browser" {
-      export = { Reflect };
-}
-declare module "es7-reflect-metadata/dist/node" {
-      export = { Reflect };
-}
+export = Reflect;
