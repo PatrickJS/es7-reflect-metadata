@@ -56,13 +56,13 @@
   },
   "homepage": "http://gdi2290.github.io/es7-reflect-metadata",
   "dependencies": {
-    "reflect-metadata": "^0.1.2"
+    "reflect-metadata": "0.1.2"
   },
   "devDependencies": {
     "merge-deep": "^2.0.1",
     "object-assign": "^4.0.1",
-    "ts-loader": "^0.8.0",
-    "typescript": "^1.7.5",
-    "webpack": "^1.12.9"
+    "ts-loader": "^0.8.1",
+    "typescript": "^1.8.2",
+    "webpack": "^1.12.14"
   }
 }
