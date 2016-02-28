@@ -1,7 +1,7 @@
 // Reflect.getOwnMetadataKeysKeys ( target [, propertyKey] )
 // - https://github.com/jonathandturner/decorators/blob/master/specs/metadata.md#reflectgetownmetadatakeyskeys--target--propertykey-
 
-import "../../dist/reflect";
+import {Reflect} from "../../src/reflect";
 import * as assert from "assert";
 
 export function ReflectGetOwnMetadataKeysKeysInvalidTarget() {
