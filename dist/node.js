@@ -45,18 +45,20 @@ exports["Reflect"] =
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	function __export(m) {
 	    for (var p in m) if (!exports.hasOwnProperty(p)) exports[p] = m[p];
 	}
 	var Reflect = __webpack_require__(1);
-	__export(__webpack_require__(1));
 	global.Reflect = Reflect;
+	__export(__webpack_require__(1));
 
 
 /***/ },
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var get_proto_of_type_1 = __webpack_require__(2);
 	var to_property_key_1 = __webpack_require__(3);
 	var is_constructor_1 = __webpack_require__(5);
@@ -658,6 +660,7 @@ exports["Reflect"] =
 /* 2 */
 /***/ function(module, exports) {
 
+	"use strict";
 	var functionPrototype = Function.prototype;
 	function getProtoOfType(O) {
 	    var proto = Object.getPrototypeOf(O);
@@ -699,6 +702,7 @@ exports["Reflect"] =
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var is_symbol_1 = __webpack_require__(4);
 	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-topropertykey
 	function toPropertyKey(value) {
@@ -714,6 +718,7 @@ exports["Reflect"] =
 /* 4 */
 /***/ function(module, exports) {
 
+	"use strict";
 	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-ecmascript-language-types-symbol-type
 	function isSymbol(x) {
 	    return typeof x === "symbol";
@@ -725,6 +730,7 @@ exports["Reflect"] =
 /* 5 */
 /***/ function(module, exports) {
 
+	"use strict";
 	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-isconstructor
 	function isConstructor(x) {
 	    return typeof x === "function";
@@ -736,6 +742,7 @@ exports["Reflect"] =
 /* 6 */
 /***/ function(module, exports) {
 
+	"use strict";
 	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-ecmascript-language-types-undefined-type
 	function isUndefined(x) {
 	    return x === undefined;
@@ -747,6 +754,7 @@ exports["Reflect"] =
 /* 7 */
 /***/ function(module, exports) {
 
+	"use strict";
 	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-isarray
 	function isArray(x) {
 	    return Array.isArray(x);
@@ -758,6 +766,7 @@ exports["Reflect"] =
 /* 8 */
 /***/ function(module, exports) {
 
+	"use strict";
 	// https://people.mozilla.org/~jorendorff/es6-draft.html#sec-object-type
 	function isObject(x) {
 	    return typeof x === "object" ? x !== null : typeof x === "function";
@@ -769,6 +778,7 @@ exports["Reflect"] =
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var weakmap_1 = __webpack_require__(10);
 	var _WeakMap = typeof WeakMap === "function" ? WeakMap : weakmap_1.createWeakMapPolyfill();
 	// TODO: fix the typescript types
@@ -780,6 +790,7 @@ exports["Reflect"] =
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var create_unique_key_1 = __webpack_require__(11);
 	var get_or_create_weakmap_1 = __webpack_require__(17);
 	exports.rootKey = create_unique_key_1.createUniqueKey();
@@ -787,6 +798,13 @@ exports["Reflect"] =
 	    function WeakMap() {
 	        this._key = create_unique_key_1.createUniqueKey();
 	    }
+	    Object.defineProperty(WeakMap.prototype, "length", {
+	        get: function () {
+	            return 0;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    WeakMap.prototype.has = function (target) {
 	        var table = get_or_create_weakmap_1.getOrCreateWeakMapTable(exports.rootKey, target, /*create*/ false);
 	        if (table) {
@@ -818,7 +836,7 @@ exports["Reflect"] =
 	        this._key = create_unique_key_1.createUniqueKey();
 	    };
 	    return WeakMap;
-	})();
+	}());
 	exports.WeakMap = WeakMap;
 	function createWeakMapPolyfill() {
 	    return WeakMap;
@@ -830,6 +848,7 @@ exports["Reflect"] =
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var helper_constants_1 = __webpack_require__(12);
 	var has_own_1 = __webpack_require__(13);
 	var create_uuid_1 = __webpack_require__(14);
@@ -849,6 +868,7 @@ exports["Reflect"] =
 /* 12 */
 /***/ function(module, exports) {
 
+	"use strict";
 	exports.UUID_SIZE = 16;
 	exports.WEAKMAP_PREFIX = "@@WeakMap@@";
 
@@ -857,6 +877,7 @@ exports["Reflect"] =
 /* 13 */
 /***/ function(module, exports) {
 
+	"use strict";
 	exports.hasOwn = Object.prototype.hasOwnProperty;
 
 
@@ -864,6 +885,7 @@ exports["Reflect"] =
 /* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var helper_constants_1 = __webpack_require__(12);
 	var gen_randombytes_1 = __webpack_require__(15);
 	function createUUID() {
@@ -891,6 +913,7 @@ exports["Reflect"] =
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var crypto = __webpack_require__(16);
 	function genRandomBytes(size) {
 	    return crypto.randomBytes(size);
@@ -908,6 +931,7 @@ exports["Reflect"] =
 /* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var has_own_1 = __webpack_require__(13);
 	function getOrCreateWeakMapTable(rootKey, target, create) {
 	    if (!has_own_1.hasOwn.call(target, rootKey)) {
@@ -927,6 +951,7 @@ exports["Reflect"] =
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var get_or_create_metadata_map_1 = __webpack_require__(19);
 	// https://github.com/jonathandturner/decorators/blob/master/specs/metadata.md#ordinaryownmetadatakeys--o-p-
 	function ordinaryOwnMetadataKeys(target, targetKey) {
@@ -944,6 +969,7 @@ exports["Reflect"] =
 /* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var metadata_1 = __webpack_require__(9);
 	var map_1 = __webpack_require__(20);
 	var _Map = typeof Map === "function" ? Map : map_1.createMapPolyfill();
@@ -978,6 +1004,7 @@ exports["Reflect"] =
 /* 20 */
 /***/ function(module, exports) {
 
+	"use strict";
 	// naive Map shim
 	exports.cacheSentinel = {};
 	var Map = (function () {
@@ -986,6 +1013,13 @@ exports["Reflect"] =
 	        this._values = [];
 	        this._cache = exports.cacheSentinel;
 	    }
+	    Object.defineProperty(Map.prototype, "length", {
+	        get: function () {
+	            return 0;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Map.prototype, "size", {
 	        get: function () {
 	            return this._keys.length;
@@ -1052,9 +1086,8 @@ exports["Reflect"] =
 	        }
 	        return -1;
 	    };
-	    Map.length = 0;
 	    return Map;
-	})();
+	}());
 	exports.Map = Map;
 	function createMapPolyfill() {
 	    return Map;
@@ -1066,6 +1099,7 @@ exports["Reflect"] =
 /* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
 	var ordinary_own_metadata_keys_1 = __webpack_require__(18);
 	var get_proto_of_type_1 = __webpack_require__(2);
 	var set_1 = __webpack_require__(22);
@@ -1086,16 +1120,16 @@ exports["Reflect"] =
 	    }
 	    var set = new _Set();
 	    var keys = [];
-	    for (var _i = 0; _i < ownKeys.length; _i++) {
-	        var key = ownKeys[_i];
+	    for (var _i = 0, ownKeys_1 = ownKeys; _i < ownKeys_1.length; _i++) {
+	        var key = ownKeys_1[_i];
 	        var hasKey = set.has(key);
 	        if (!hasKey) {
 	            set.add(key);
 	            keys.push(key);
 	        }
 	    }
-	    for (var _a = 0; _a < parentKeys.length; _a++) {
-	        var key = parentKeys[_a];
+	    for (var _a = 0, parentKeys_1 = parentKeys; _a < parentKeys_1.length; _a++) {
+	        var key = parentKeys_1[_a];
 	        var hasKey = set.has(key);
 	        if (!hasKey) {
 	            set.add(key);
@@ -1111,12 +1145,20 @@ exports["Reflect"] =
 /* 22 */
 /***/ function(module, exports) {
 
+	"use strict";
 	// var _Map: MapConstructor = (typeof Map !== "undefined") ? createMapPolyfill() : Map;
 	exports.cacheSentinel = {};
 	var Set = (function () {
 	    function Set() {
 	        this._map = new Map();
 	    }
+	    Object.defineProperty(Set.prototype, "length", {
+	        get: function () {
+	            return 0;
+	        },
+	        enumerable: true,
+	        configurable: true
+	    });
 	    Object.defineProperty(Set.prototype, "size", {
 	        get: function () {
 	            return this._map.size;
@@ -1140,9 +1182,8 @@ exports["Reflect"] =
 	    Set.prototype.forEach = function (callback, thisArg) {
 	        this._map.forEach(callback, thisArg);
 	    };
-	    Set.length = 0;
 	    return Set;
-	})();
+	}());
 	exports.Set = Set;
 	function createSetPolyfill() {
 	    return Set;
