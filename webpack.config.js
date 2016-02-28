@@ -48,7 +48,7 @@ module.exports = [
       libraryTarget: "umd"
     },
     resolve: {
-      packageAlias: "browser",
+      packageAlias: "web",
     },
     node: {
       crypto: false,
