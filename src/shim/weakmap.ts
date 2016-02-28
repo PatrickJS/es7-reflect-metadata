@@ -9,6 +9,10 @@ export class WeakMap<T, V> {
   private _key = createUniqueKey();
   constructor() {}
 
+  get length(): number {
+    return 0;
+  }
+
   has(target: T) {
     var table = getOrCreateWeakMapTable(rootKey, target, /*create*/ false);
     if (table) {

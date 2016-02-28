@@ -6,9 +6,11 @@ export class Map<K, V> {
   private _values: Array<V> = [];
   private _cache: any = cacheSentinel;
 
-  static length: number = 0;
   constructor() {}
 
+  get length(): number {
+    return 0;
+  }
   get size(): number {
     return this._keys.length;
   }

@@ -7,9 +7,11 @@ export var cacheSentinel: any = {};
 export class Set<K, V> {
   private _map = new Map();
 
-  static length: number = 0;
   constructor() {}
 
+  get length(): number {
+    return 0;
+  }
   get size() {
     return this._map.size;
   }
